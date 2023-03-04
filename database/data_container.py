@@ -82,7 +82,8 @@ class DataContainer:
 
 if __name__ == '__main__':
   path = r"D:\github\FinancialCacheDatabase\database\test.db"
-  df = pd.DataFrame({"a":[1,2,3],"b":[4,5,6]})
+  # df = pd.DataFrame({"a":[1,2,3],"b":[4,5,6]})
+  df = pd.read_csv(r"E:\github\FinRL\data\DOW_30_TICKER_2005-01-01_2020-07-01.csv",index_col=[0])
   dc = DataContainer(path)
   dc.to_sql(df,if_exists="append")
   df = dc.read_sql()
