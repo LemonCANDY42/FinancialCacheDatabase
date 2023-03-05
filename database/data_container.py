@@ -79,6 +79,14 @@ class DataContainer:
       print("读取数据库成功！")
       return df
 
+  def _close(self):
+    """关闭数据库"""
+    self._conn.close()
+    print("数据库关闭成功！")
+
+  def __del__(self):
+    self._close()
+
 
 if __name__ == '__main__':
   path = r"D:\github\FinancialCacheDatabase\database\test.db"
@@ -88,3 +96,4 @@ if __name__ == '__main__':
   dc.to_sql(df,if_exists="append")
   df = dc.read_sql()
   print(df)
+  del dc
