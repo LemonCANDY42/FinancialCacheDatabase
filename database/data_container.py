@@ -96,4 +96,3 @@ if __name__ == '__main__':
   dc.to_sql(df,if_exists="append")
   df = dc.read_sql()
   print(df)
-  del dc
